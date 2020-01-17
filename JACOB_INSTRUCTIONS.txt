@@ -1,0 +1,17 @@
+// Below is how you see the output from your xxd file
+
+    cat test_file_thing.txt | xxd > where_you_want_the_xxd_results.txt
+
+// Below is how you see the output from your myxxd.c file
+
+       // Note: you firt need to compile your file with "gcc -Wall -g myxxd.c -o myxxd"
+
+    cat test_file_thing.txt | ./myxxd > where_you_want_the_myxxd.c_results.txt
+
+// Now you get to compare the two files by doing this...
+
+    diff where_you_want_the_xxd_results.txt where_you_want_the_myxxd.c_results.txt
+
+        // Then you get a bunch of output below
+
+ 
