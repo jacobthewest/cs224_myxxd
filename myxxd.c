@@ -95,6 +95,21 @@ void printDataAsChars(unsigned char *data, size_t size) {
 	}
 }
 
+
+/**
+ * Writes data to stdout in binary
+ *
+ * See myxxd.md for details.
+ *
+ * data: an array of no more than 6 bytes
+ * size: the size of the array
+ **/
+
+void printDataAsBinary(unsigned char *data, size_t size) {
+ // We will get one char, get its int value, and convert that to be a binary number 
+ 
+}
+
 void readAndPrintInputAsHex(FILE *input) {
   unsigned char data[16];
   int numBytesRead = fread(data, 1, 16, input);
@@ -119,7 +134,19 @@ void readAndPrintInputAsHex(FILE *input) {
  * input: input stream
  **/
 void readAndPrintInputAsBits(FILE *input) {
-  printf("TODO 3: readAndPrintInputAsBits\n");
+  unsigned char data[12];
+  int numBytesRead = fread(data, 1, 6, input);
+  unsigned int offset = 0;
+  while (numBytesRead != 0) {
+    printf("%08x:", offset);
+    offset += numBytesRead;
+    printf(" ");
+    printDataAsBinary(data, numBytesRead);
+    printf("  ");
+    printDataAsChars(data, numBytesRead);
+    printf("\n");
+    numBytesRead = fread(data, 1, 6 input);
+  }
 }
 
 int main(int argc, char **argv) {
